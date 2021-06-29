@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #test1{
+            height: 200px;
+            width: 400px;
+            border-radius: 5%;
+            border: 1px solid black;
+            animation-name: sample;
+            animation-duration: 5s;
+            background-color: darkcyan;
+            animation-iteration-count: infinite;
+            animation-direction: reverse;
+        }
+        @keyframes sample {
+            from{background-color: darkcyan;}
+            to{background-color: darkblue;}
+        }
+        #test2{
+            animation-name: para;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate-reverse;
+            color: white;
+            font-size: 30px;
+        }
+        @keyframes para {
+            /* from{margin-left: 0px;margin-top: 0px}
+            to{margin-left: 300px;margin-top: 180px} */
+            0%{margin-left: 0px;margin-top: 0px}
+            25%{margin-left:250px;margin-top:0px}
+            50%{margin-left: 250px;margin-top: 160px}
+            100%{margin-left:0px;margin-top:160px}
+        }
+        #test3{
+            background-color: turquoise;
+            transition: width 2s,height 2s,transform 2s;
+            width:100px;
+            height:100px;
+            border: 2px solid black;
+        }
+        #test3:hover{
+            transform:rotate(360deg);
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h3>Fun with animation....</h3>
+    <div id="test1">
+        <p id="test2">Welcome.....</p>
+    </div><br><br>
+    <div id="test3"></div>
+</body>
+</html>
