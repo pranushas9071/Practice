@@ -25,7 +25,7 @@
   </head>
   <body>
     <div class="container">
-      <i style="border: 1px solid red; size: 15px;" class="fas fa-address-card"></i>
+      <i style="border: 1px solid red; size: 15px" class="fas fa-address-card"></i>
 
       <div class="additional jumbotron text-center">
         <img
@@ -45,13 +45,9 @@
           <div class="col-sm-12 col-lg-6">
             <label for="reason">Reason : </label><br />
             <select class="form-control" name="Reason" required>
-              <option disabled selected style="display: none" value="">
-                Select..
-              </option>
+              <option disabled selected style="display: none" value="">Select..</option>
               <option value="Medical Emergency">Medical Emergency</option>
-              <option value="Death And Post Death Rituals">
-                Death And Post Death Rituals
-              </option>
+              <option value="Death And Post Death Rituals">Death And Post Death Rituals</option>
               <option value="Others">Others</option></select
             ><br />
             <label for="TravelDate">Travel Date : </label><br />
@@ -104,9 +100,7 @@
             ></textarea>
             <label for="IdProof">ID Proof Of Aplicant : </label><br />
             <select class="form-control" name="IdProof" required>
-              <option disabled selected style="display: none" value="">
-                Select..
-              </option>
+              <option disabled selected style="display: none" value="">Select..</option>
               <option value="Aadhar card">Aadhar Card</option>
               <option value="Ration Card">Ration Card</option>
               <option value="PAN Card">PAN Card</option>
@@ -114,9 +108,7 @@
             ><br />
             <label for="VehicleType">Type Of Vehicle : </label><br />
             <select class="form-control" name="VehicleType" required>
-              <option disabled selected style="display: none" value="">
-                Select..
-              </option>
+              <option disabled selected style="display: none" value="">Select..</option>
               <option value="Bike">Bike</option>
               <option value="Bus">Bus</option>
               <option value="Car">Car/Hired Taxi</option>
@@ -130,73 +122,7 @@
       <iframe src="http://127.0.0.1:5500/Location.html" title="description"></iframe>
       <ul id="display"></ul>
       <table id="tbl"></table>
-      <script>
-        function ack() {
-          const myForm = document.getElementById("newForm");
-          //const obj={}
-
-          //list..........................................................
-          const ul = document.getElementById("display");
-          ul.innerHTML = "";
-          const hd = document.createElement("h4");
-          hd.innerHTML = "USER INPUTS : ";
-          ul.append(hd);
-          ul.style.backgroundColor = "#fff2cc";
-          ul.style.fontSize = "medium";
-          for (var j = 0; j < myForm.elements.length; j++) {
-            if (
-              myForm.elements[j].tagName == "INPUT" ||
-              myForm.elements[j].tagName == "TEXTAREA" ||
-              myForm.elements[j].tagName == "SELECT"
-            ) {
-              const li = document.createElement("li");
-              li.innerHTML =
-                myForm.elements[j].name + " : " + myForm.elements[j].value;
-              ul.append(li);
-            }
-          }
-
-          //table.........................................................
-          const tbl = document.getElementById("tbl");
-          tbl.style.backgroundColor = "#ffe6e6";
-          tbl.style.padding = "3px";
-          tbl.style.width = "100%";
-          const row = document.createElement("tr");
-          tbl.append(row);
-          const head1 = document.createElement("th");
-          head1.innerHTML = "S.No";
-          row.append(head1);
-          const head2 = document.createElement("th");
-          head2.innerHTML = "TITLE";
-          row.append(head2);
-          const head3 = document.createElement("th");
-          head3.innerHTML = "USER VALUE";
-          row.append(head3);
-          for (var x = 0; x < myForm.elements.length; x++) {
-            if (
-              myForm.elements[x].tagName == "INPUT" ||
-              myForm.elements[x].tagName == "TEXTAREA" ||
-              myForm.elements[x].tagName == "SELECT"
-            ) {
-              const tr = document.createElement("tr");
-              const td1 = document.createElement("td");
-              const td2 = document.createElement("td");
-              tr.append(x + 1);
-              td1.innerHTML = myForm.elements[x].name;
-              tr.append(td1);
-              td2.innerHTML = myForm.elements[x].value;
-              tr.append(td2);
-              tbl.append(tr);
-            }
-          }
-
-          event.preventDefault();
-          const f = document.getElementById("newForm").elements[4].value;
-          if (f.match(/\d{10}/)) alert("Submitted successfully!!!");
-          else alert("Re-enter mobile number");
-        }
-        cDate.min = new Date().toISOString().split("T")[0];
-      </script>
+      <script src="./js/front.js"></script>
     </div>
   </body>
 </html>
