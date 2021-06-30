@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function drag(e) {
+        e.dataTransfer.setData("image", e.target.id);
+      }
+      function drop(e) {
+        const a = e.dataTransfer.getData("image");
+        e.target.appendChild(document.getElementById(a));
+      }
+      function afterDrag(e) {
+        e.preventDefault();
+      }
+    </script>
+    <p>Drop the image inside the below box....</p>
+    <br />
+    <div
+      id="process2"
+      style="border: 2px solid black; height: 200px; width: 200px; background-color: rgb(134, 221, 233);"
+      ondragover="afterDrag(event)"
+      ondrop="drop(event)"
+    ></div>
+    <br />
+    <img
+      id="process1"
+      src="html.png"
+      height="200px"
+      width="200px"
+      draggable="true"
+      ondragstart="drag(event)"
+    />
+  </body>
+</html>

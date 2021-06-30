@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      #maps {
+        height: 500px;
+        width: 500px;
+        margin-left: 50px;
+      }
+      #info {
+        height: 50px;
+        width: 250px;
+        border: 1px solid black;
+        padding: 10px;
+      }
+      /* .tooltip {
+        position: relative;
+        display: inline-block;
+        border-bottom: 1px dotted black;
+      }
+
+      .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+
+        /* Position the tooltip */
+        /* position: absolute;
+        z-index: 1;
+        top: -5px;
+        left: 105%;
+      }
+      .tooltip:hover .tooltiptext {
+        visibility: visible;
+      } */ 
+    </style>
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="maps"></div>
+    <br />
+    <div id="info"></div>
+    <script>
+      var tipObj = null;
+      var pos = { x: 0, y: 0 };
+      function getLocation() {
+        // callback function.......
+        navigator.geolocation.getCurrentPosition(myMap);
+      }
+
+      function myMap(position) {
+        const lt = position.coords.latitude;
+        const lg = position.coords.longitude;
+        const locate = { lat: lt, lng: lg };
+
+        const map = new google.maps.Map(document.getElementById("maps"), {
+          //google map....
+          zoom: 4,
+          center: locate,
+        });
+
+        const marker = new google.maps.Marker({
+          // marking my location.....
+          position: locate,
+          map: map,
+          title: "Home",
+        });
+
+        google.maps.event.addListener(map, "mousemove", function (event) {
+          // Mouse scroll event.....
+          displayCoordinates(event.latLng);
+          // console.log(event.latLng.lat());
+          //console.log(Object(event));
+        });
+      }
+
+      function displayCoordinates(ev) {
+        //Displays latitude and longitude.......
+        var lat = ev.lat();
+        var lng = ev.lng();
+        tipObj = document.createElement("div");
+        tipObj.style.backgroundColor = "black";
+        tipObj.style.color = "white";
+        tipObj.style.textAlign = "center";
+        tipObj.style.borderRadius = "6px";
+        tipObj.style.padding = "5px 0";
+        tipObj.innerHTML = "Latitude:" + lat + "<br>Longitude:" + lng;
+        tipObj.style.position = "fixed";
+        tipObj.style.zIndex = "1";
+        tipObj.style.top = window.scrollY + pos.y;
+        tipObj.style.left = window.scrollX + pos.x;
+        document.body.appendChild(tipObj);
+        const l = document.getElementById("info");
+        l.innerHTML = "Latitude:" + lat + "<br>Longitude:" + lng;
+        // console.log(window.scrollX, window.scrollY);
+        // console.log(ev.clientX, ev.clientY);
+        // console.log(ev.pagetX, ev.pageY);
+      }
+    </script>
+    <script
+      async
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD32Ele7AGwg9wRZjjgjRNSRKdP0Yqf6MY&region=IN&callback=getLocation"
+    ></script>
+  </body>
+</html>
