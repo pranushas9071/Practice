@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body onoffline="off()" onresize="rsize()">
+    <form>
+      <label>Name : </label><br />
+      <input
+        id="name"
+        type="text"
+        onblur="blurFuction()"
+        onfocus="focusFunction()"
+      /><br />
+      <label>Choose department :</label><br />
+      <select id="dept" onchange="changeFunction()">
+        <option>ECE</option>
+        <option>CSE</option>
+        <option>IT</option></select
+      ><br />
+      <p id="res"></p>
+      <label>Input function...give any input below..</label><br />
+      <input type="text" id="inp" oninput="inputFunction()" /><br />
+      <p id="disp"></p>
+      <br />
+      <label>Search function... search for anything in the below box...</label
+      ><br />
+      <input type="search" onsearch="searchFunction()" id="search" />
+      <br />
+      <p id="search_res"></p>
+      <label>Select function... select text in the below box...</label><br />
+      <input
+        type="text"
+        value="Select me!!"
+        onselect="selectFunction()"
+        id="select"
+      />
+      <br />
+      <label>keydown Keyboard event....type something</label><br />
+      <input type="text" onkeydown="keydownFunction()" id="kdown" />
+      <br />
+      <label>keypress Keyboard event....type something</label><br />
+      <input type="text" onkeypress="keypressFunction()" id="kpress" />
+      <br />
+      <label>keyup Keyboard event....type something</label><br />
+      <input type="text" onkeyup="keyupFunction()" id="kup" />
+      <br />
+      <img
+        src="flower.jpg"
+        onmouseover="mover(this)"
+        onmouseout="mout(this)"
+        height="100px"
+        width="100px"
+      />
+      <p>oncut copy paste...try cutting copying pasting in below input</p>
+      <input
+        id="clip"
+        type="text"
+        value="Fun with clipboard"
+        oncut="cut()"
+        oncopy="copy()"
+        onpaste="paste()"
+      />
+      <p id="cbres"></p>
+    </form>
+    <script>
+      function blurFuction() {
+        const a = document.getElementById("name");
+        a.value = a.value.toUpperCase();
+      }
+      function focusFunction() {
+        document.getElementById("name").style.backgroundColor = "green";
+      }
+      function changeFunction() {
+        const b = document.getElementById("dept").value;
+        document.getElementById("res").innerHTML = "Your department is : " + b;
+      }
+      function inputFunction() {
+        const c = document.getElementById("inp").value;
+        document.getElementById("disp").innerHTML = "you are writing : " + c;
+      }
+      function searchFunction() {
+        const d = document.getElementById("search").value;
+        document.getElementById("search_res").innerHTML =
+          "You are searching for : " + d;
+      }
+      function selectFunction() {
+        const e = document.getElementById("select").value;
+        alert("You are selecting some text...");
+      }
+      function keydownFunction() {
+        alert("you are typinggg...");
+      }
+      function keypressFunction() {
+        alert("you are typinggg...");
+      }
+      function keyupFunction() {
+        alert("you are typinggg...");
+      }
+      function mover(f) {
+        f.style.height = "200px";
+        f.style.width = "200px";
+        f.style.border = "1px solid black";
+      }
+      function mout(g) {
+        g.style.height = "100px";
+        g.style.width = "100px";
+        g.style.border = "1px solid red";
+      }
+      function cut() {
+        alert("Clipboard cut event is done...");
+      }
+      function copy() {
+        alert("copied...");
+      }
+      function paste() {
+        alert("pasted....");
+      }
+      function off(){
+          alert("you are offline...");
+      }
+      function rsize(){
+          alert("Resized...");
+      }
+    </script>
+  </body>
+</html>

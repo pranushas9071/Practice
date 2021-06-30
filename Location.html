@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      #maps {
+        height: 500px;
+        width: 500px;
+      }
+    </style>
+
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="show()">Click to see the location</button>
+    <p id="location"></p>
+    <div id="maps"></div>
+
+    <script>
+      function show() {
+        const a = document.getElementById("location");
+        navigator.geolocation.getCurrentPosition((position) => {
+          console.log(position);
+          a.innerHTML =
+            " Latitude : " +
+            position.coords.latitude +
+            "<br>Longitude : " +
+            position.coords.longitude;
+        });
+      }
+      function getLocation() {
+        navigator.geolocation.getCurrentPosition(myMap);
+      }
+
+      function myMap(position) {
+        const lt = position.coords.latitude;
+        const lg = position.coords.longitude;
+        const locate = { lat: lt, lng: lg };
+        const map = new google.maps.Map(document.getElementById("maps"), {
+          zoom: 4,
+          center: locate,
+        });
+        const marker = new google.maps.Marker({
+          position: locate,
+          map: map,
+          title: "Home",
+        });
+        
+      }
+    </script>
+    <script
+      async
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD32Ele7AGwg9wRZjjgjRNSRKdP0Yqf6MY&region=IN&callback=getLocation&libraries=&v=weekly"
+    ></script>
+  </body>
+</html>

@@ -16,41 +16,15 @@
         border: 1px solid black;
         padding: 10px;
       }
-      /* .tooltip {
-        position: relative;
-        display: inline-block;
-        border-bottom: 1px dotted black;
-      }
-
-      .tooltip .tooltiptext {
-        visibility: hidden;
-        width: 120px;
-        background-color: black;
-        color: #fff;
-        text-align: center;
-        border-radius: 6px;
-        padding: 5px 0;
-
-        /* Position the tooltip */
-        /* position: absolute;
-        z-index: 1;
-        top: -5px;
-        left: 105%;
-      }
-      .tooltip:hover .tooltiptext {
-        visibility: visible;
-      } */ 
     </style>
 
     <title>Document</title>
   </head>
   <body>
     <div id="maps"></div>
-    <br />
-    <div id="info"></div>
+    <br>
     <script>
       var tipObj = null;
-      var pos = { x: 0, y: 0 };
       function getLocation() {
         // callback function.......
         navigator.geolocation.getCurrentPosition(myMap);
@@ -67,42 +41,32 @@
           center: locate,
         });
 
-        const marker = new google.maps.Marker({
-          // marking my location.....
-          position: locate,
-          map: map,
-          title: "Home",
-        });
-
         google.maps.event.addListener(map, "mousemove", function (event) {
           // Mouse scroll event.....
-          displayCoordinates(event.latLng);
-          // console.log(event.latLng.lat());
-          //console.log(Object(event));
+          displayCoordinates(event.latLng, event);
         });
       }
 
-      function displayCoordinates(ev) {
+      function displayCoordinates(ev, event) {
         //Displays latitude and longitude.......
+        if (document.contains(tipObj)) {
+          document.body.removeChild(tipObj);
+          tipObj = null;
+        }
         var lat = ev.lat();
         var lng = ev.lng();
         tipObj = document.createElement("div");
-        tipObj.style.backgroundColor = "black";
-        tipObj.style.color = "white";
+        tipObj.style.backgroundColor = "rgb(219, 213, 213)";
+        tipObj.style.border = "1px solid black";
         tipObj.style.textAlign = "center";
         tipObj.style.borderRadius = "6px";
         tipObj.style.padding = "5px 0";
         tipObj.innerHTML = "Latitude:" + lat + "<br>Longitude:" + lng;
         tipObj.style.position = "fixed";
         tipObj.style.zIndex = "1";
-        tipObj.style.top = window.scrollY + pos.y;
-        tipObj.style.left = window.scrollX + pos.x;
+        tipObj.style.top = event.domEvent.clientY + "px";
+        tipObj.style.left = event.domEvent.clientX + "px";
         document.body.appendChild(tipObj);
-        const l = document.getElementById("info");
-        l.innerHTML = "Latitude:" + lat + "<br>Longitude:" + lng;
-        // console.log(window.scrollX, window.scrollY);
-        // console.log(ev.clientX, ev.clientY);
-        // console.log(ev.pagetX, ev.pageY);
       }
     </script>
     <script
