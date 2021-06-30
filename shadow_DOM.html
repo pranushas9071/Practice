@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class PopUpInfo extends HTMLElement {
+        constructor() {
+          super();
+          let shadow = this.attachShadow({ mode: "open" });
+          let wrapper = document.createElement("div");
+          wrapper.setAttribute("class", "wrapper");
+          let icon = document.createElement("div");
+          icon.setAttribute("class", "icon");
+          let info = document.createElement("div");
+          info.setAttribute("class", "info");
+          //let text=this.getAttribute('data-text');
+          info.textContent = "Here is the pop up info for you..";
+          let imageUrl = "html.png";
+          let img = document.createElement("img");
+          img.src = imageUrl;
+          icon.appendChild(img);
+          let style = document.createElement("style");
+          style.textContent =
+            ".wrapper{position:relative} .info{font-size: 0.8rem;top:10px;width: 200px;display: inline-block;border: 1px solid black;padding: 10px;background: white;border-radius: 10px;opacity: 0;position: absolute;bottom: 20px;left: 10px;margin-bottom:5px}img{width:1.2rem}.icon:hover+ .info, .icon:focus + .info{opacity:1;}";
+          shadow.appendChild(style);
+          shadow.appendChild(wrapper);
+          wrapper.appendChild(icon);
+          wrapper.appendChild(info);
+        }
+      }
+      customElements.define("popup-info", PopUpInfo);
+    </script>
+    <popup-info
+    ></popup-info>
+  </body>
+</html>

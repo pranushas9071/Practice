@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class MyProduct extends HTMLElement {
+        constructor() {
+          super();
+          let shadow = this.attachShadow({ mode: "open" });
+          let imgurl = "flower.jpg";
+          let img = document.createElement("img");
+          img.src = imgurl;
+          img.setAttribute("class", "img");
+          let para = document.createElement("p");
+          para.textContent = "This is a flower";
+          para.setAttribute("class", "text");
+          let container = document.createElement("div");
+          container.setAttribute("class", "contain");
+          let style = document.createElement("style");
+          style.textContent =
+            ".img{height:50px;width:50px;float:left;display:inline-block}.text{boreder-radius:5px;}.contain{height:50px;width:160px;border:1px solid red;position:relative;opacity:1}";
+          shadow.appendChild(style);
+          shadow.appendChild(container);
+          container.appendChild(img);
+          container.appendChild(para);
+        }
+        // connectedCallback() {
+        //   const x = "IT is working";
+        //   this.innerHTML = x;
+        //   this.style.color = "red";
+        // }
+      }
+      customElements.define("my-product", MyProduct);
+    </script>
+    <my-product></my-product>
+  </body>
+</html>
