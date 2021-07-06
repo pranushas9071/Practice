@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="name" type="text" placeholder="Enter your name" /><br><br>
+    <input id="msg" type="text" placeholder="Enter your message" /><br><br>
+    <div id="disp" style="border: 2px solid black;height: 450px;width: 500px;padding: 10px;">
+    </div><br>
+    <button id="click">Send</button>
+    </bt>
+    <script>
+        let socket = new WebSocket("ws://localhost:8090");
+        let a = document.getElementById("disp");
+        socket.onmessage=function(ev){
+            //console.log(ev);
+            a.innerHTML += ev.data + "<br>";
+        }
+        const b = document.getElementById("click");
+        b.addEventListener("click", (ev) => {
+            let data = document.getElementById("name").value + "  : " + document.getElementById("msg").value;
+            socket.send(data);
+        })
+    </script>
+</body>
+
+</html>
