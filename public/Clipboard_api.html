@@ -8,7 +8,7 @@
   </head>
   <body>
     <div>
-      <textarea id="text" rows="9" cols="80">
+      <textarea  rows="9" cols="80">
         Aspire Systems is a global technology services firm serving as a trusted
         technology partner for our customers. We work with some of the world's
         most innovative enterprises and independent software vendors, helping
@@ -18,13 +18,15 @@
         services. Our core philosophy of "Attention. Always." communicates our
         belief in lavishing care and attention on our customers and employees.
       </textarea>
+      <p id="text">Hello world..</p>
+      <!-- <input id="test" value="Hello"> -->
     </div>
     <button onclick="copy()">copy</button>
     <script>
       function copy(ev) {
         const cb = document.getElementById("text");
-        //console.log(cb.value);
-        navigator.clipboard.writeText(cb.value);
+        console.log(cb.textContent);
+        navigator.clipboard.writeText(cb.textContent);
       }
     </script>
   </body>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Bootstrap Example</title>
+    <title>INDEX</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
@@ -10,9 +10,14 @@
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
     <style>
       .styleFrame {
-          height: 500px;
+        height: 500px;
         width: 100%;
       }
     </style>
@@ -23,30 +28,120 @@
   <body>
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">WebSiteName</a>
-        </div>
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home</a></li>
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#"
-              >Page 1 <span class="caret"></span
+              >Assignments <span class="caret"></span
             ></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Page 1-1</a></li>
-              <li><a href="#">Page 1-2</a></li>
-              <li><a href="#">Page 1-3</a></li>
-            </ul>
+            <ul id="assignment_list" class="dropdown-menu"></ul>
           </li>
-          <li><a href="#">Page 2</a></li>
-          <li><a href="#">Page 3</a></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#"
+              >HTML <span class="caret"></span
+            ></a>
+            <ul id="html_list" class="dropdown-menu"></ul>
+          </li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#"
+              >CSS <span class="caret"></span
+            ></a>
+            <ul id="css_list" class="dropdown-menu"></ul>
+          </li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#"
+              >JavaScript <span class="caret"></span
+            ></a>
+            <ul id="js_list" class="dropdown-menu"></ul>
+          </li>
         </ul>
       </div>
     </nav>
 
     <div class="container-fluid">
-      <iframe class="styleFrame" src="public/front.html" title="front Html">
+      <iframe
+        id="frame"
+        class="styleFrame"
+        src=""
+        title="front Html"
+      >
       </iframe>
     </div>
+
+    <script>
+      let assignment_array = [
+        "public/Animation.html",
+        "public/Mediaquery.html",
+        "public/Pseudo-class.html",
+        "public/Geo-location.html",
+        "public/Drag-Drop.html",
+        "public/Web-Socket.html",
+      ];
+      for (let i = 0; i < assignment_array.length; i++) {
+        const b = $("<a></a>")
+          .attr("href", "#")
+          .text(assignment_array[i].toString().split("/")[1].split(".")[0]);
+        const li = $("<li></li>").append(b);
+        $("#assignment_list").append(li);
+        $(b).click(function () {
+          $("#frame").attr("src", assignment_array[i]);
+        });
+      }
+
+      let html_array = [
+        "public/App-Cache.html",
+        "public/Custom-elements.html",
+        "public/Events.html",
+        "public/Location.html",
+        "public/Shadow-DOM.html",
+        "public/Touch-events.html",
+        "public/View-events.html",
+        "public/Web-Storage.html",
+        "public/Web-Worker.html",
+        "public/e-pass.html",
+        "public/e-pass_form.html",
+      ];
+      for (let i = 0; i < html_array.length; i++) {
+        const b = $("<a></a>")
+          .attr("href", "#")
+          .text(html_array[i].toString().split("/")[1].split(".")[0]);
+        const li = $("<li></li>").append(b);
+        $("#html_list").append(li);
+        $(b).click(function () {
+          $("#frame").attr("src", html_array[i]);
+        });
+      }
+
+        let css_array = [
+        "public/Animations_Transitions.html",
+        "public/Media-Query.html",
+        "public/Multi-column-display.html",
+        "public/Pseudo-class&elements.html",
+      ];
+      for (let i = 0; i < css_array.length; i++) {
+        const b = $("<a></a>")
+          .attr("href", "#")
+          .text(css_array[i].toString().split("/")[1].split(".")[0]);
+        const li = $("<li></li>").append(b);
+        $("#css_list").append(li);
+        $(b).click(function () {
+          $("#frame").attr("src", css_array[i]);
+        });
+      }
+
+      let js_array = [
+        "public/jQuery.html",
+      ];
+      for (let i = 0; i < js_array.length; i++) {
+        const b = $("<a></a>")
+          .attr("href", "#")
+          .text(js_array[i].toString().split("/")[1].split(".")[0]);
+        const li = $("<li></li>").append(b);
+        $("#js_list").append(li);
+        $(b).click(function () {
+          $("#frame").attr("src", js_array[i]);
+        });
+      }
+
+    </script>
   </body>
 </html>
