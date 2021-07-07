@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="myform" onsubmit="myfunction()" id="newform">
+        <label for="name">Name : </label><br>
+        <input type="text" name="name"><br>
+        <label for="e-mail">e-mail :</label><br>
+        <input type="text" name="mail"><br><br>
+        <button type="submit">Click to submit</button>
+    </form>
+    <script>
+
+        function myfunction(){
+            //const v=document.forms["myform"]["mail"].value
+
+            const val=document.getElementById("newform");
+            console.log(val.elements[1].value);
+            //const t=val.elements[1].value;
+
+            if(val.elements[1].value.match(/([a-z]+([a-z]|[0-9]|[A-Z]|\.)+@+([a-z]+.+((ac.in)|com)))/)){
+                alert("Valid")
+            }
+            else
+            alert("Invalid")
+        }
+
+    </script>
+</body>
+</html>
