@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3 id="id1">For Practice....</h3>
+        <p >Hello.....</p>
+    <form id="newForm" onsubmit="sample()" name="myform">
+        <label  for="name">Name :</label><br>
+        <input  type="text" ><br>
+        <label for="phone">Mobile No :</label><br>
+        <input type="tel" maxlength="10"><br>
+        <label for="date" >Date :</label><br>
+        <input type="date" id="cDate"><br>
+        <label for="RegNo">Reg_No :</label><br>
+        <input name="RegNo" type="text"><br><br>
+        <button type="submit" >Click me</button>
+    </form>
+    <p id="disp"></p>
+    <script>
+
+        function sample(){
+            const a=document.getElementById("newForm").elements[0].value;
+            console.log('res',a);
+            const temp=document.getElementById("disp");
+            temp.innerHTML="" //to prevent repeating...
+            temp.append(a);
+            event.preventDefault(); //prevents refreshing
+
+            const g=document.forms["myform"]["RegNo"].value  // dom forms..
+            if(g==""){
+                alert("Kindly fill the RegNo");
+            }
+        }    
+
+
+        cDate.min=new Date().toISOString().split("T")[0];
+        const t=new Date().toISOString();
+        console.log('time',t);
+
+
+            const b=document.getElementById("id1"); //getting
+            b.innerHTML="Hello Pranusha..." //changing the DOM element
+            console.log('b',b) 
+
+            const c=document.getElementsByTagName("p");  //getting
+            c[0].innerHTML="Your form is..." //since there are two "p" c becomes an array
+
+            const d=document.createElement("h2")   //creating
+            d.innerHTML="Welcome ..."
+            b.append(d);   //inside b
+            b.parentNode.append(d);     //next to parent node
+
+            d.remove();   //removing
+
+            const f=document.createElement("h1");
+            f.innerHTML="Hello world";
+            b.appendChild(f);
+            
+
+            f.setAttribute("style","color:red")  //changing the attribute
+            document.write("This is working...")  //writing
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+CACHE MANIFEST
+
+CACHE:
+css/styleToCache.CSS
+app_cache.html
+
+NETWORK:
+*
+

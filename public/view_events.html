@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="test"></ul>
+    <div
+      id="disp"
+      style="
+        display: block;
+        height: max-content;
+        width: max-content;
+        background-color: cadetblue;
+      "
+    >
+      <p>This will disappear...</p>
+    </div>
+    <script>
+      let ul = document.getElementById("test");
+      let li = document.createElement("li");
+      let a = visualViewport.offsetLeft;
+      let b = visualViewport.offsetTop;
+      let c = visualViewport.pageLeft;
+      let d = visualViewport.pageTop;
+      let e = visualViewport.scale;
+      let f = visualViewport.width;
+      li.innerHTML = a.value;
+      ul.append(li);
+      li.innerHTML = b.value;
+      ul.append(li);
+      let g=document.getElementById("disp");
+      window.visualViewport.addEventListener("resize",(ev)=>{
+          if(window.visualViewport.scale>1.5){
+              g.style.display="none";
+          }
+          else{
+              g.style.display="block";
+          }
+      })
+      window.visualViewport.addEventListener("scroll",(ev)=>{
+          li.innerHTML="You are scrolling...";
+          ul.append(li);
+      })
+      // window.addEventListener("load",(ev)=>{
+      //     let temp=performance.getEntries();
+      //     console.log(temp.value);
+      // })
+    </script>
+  </body>
+</html>
