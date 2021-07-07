@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Check for available bluetooth devices..</h2>
+    <button id="bt">Click</button>
+    <script>
+      document.getElementById("bt").addEventListener("click", (ev) => {
+        navigator.bluetooth
+           .requestDevice({acceptAllDevices:true})
+          // .requestDevice()
+          .then((device) => {
+            console.log(device);
+          })
+          .catch((error) => {
+            console.log("Not found..");
+            console.error(error);
+          });
+      });
+    </script>
+  </body>
+</html>
