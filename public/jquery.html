@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      .changecolor {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="test">Hello world...</h1>
+    <input type="text" id="name" placeholder="Please enter your name" />
+    <button id="b1">Click</button><br />
+    <p id="disp"></p>
+    <a id="link" href="Assignment_pseudo.html">It is a link..</a><br /><br />
+    <button id="b2">Click</button>
+    <p id="disp1"></p>
+    <p>Setting values using jquery..</p>
+    <h2 id="t1">Hello world..</h2>
+    <p id="t2">Hello world...</p>
+    <input id="t3" type="text" value="Apple" /> <br /><br />
+    <button id="b3">Setting Text</button><button id="b4">Setting HTML</button
+    ><button id="b5">Setting value</button><br />
+    <p>Appending and prepending in jquery..</p>
+    <ol>
+      <li>Apple</li>
+      <li>Mango</li>
+      <li>Orange</li>
+    </ol>
+    <button id="b6">Prepend</button>
+    <button id="b7">Append</button>
+    <p>Removing...</p>
+    <p id="rem">Hello world..</p>
+    <p>Hello world</p>
+    <button id="b8">Remove</button>
+    <p>Adding classes..</p>
+    <p id="rem2">hello world...</p>
+    <button id="b9">Add class</button>
+    <script>
+      $("h1#test").html("Hello all..");
+
+      $("button#b1").click(function () {
+        const res = $("#name").val();
+        $("#disp").html(res);
+      });
+
+      $("button#b2").click(function () {
+        $("#disp1").html($("#link").attr("href"));
+      });
+
+      $("button#b3").click(function () {
+        $("#t1").text("Welcome Aspirian...");
+      });
+
+      $("button#b4").click(function () {
+        $("#t2").html("<b>Hello world..<b>");
+      });
+
+      $("button#b5").click(function () {
+        $("#t3").val("Mango");
+      });
+
+      $("#b6").click(function () {
+        $("ol").prepend("<li>Grapes</li><li>Banana</li>");
+      });
+
+      $("#b7").click(function () {
+        $("ol").append("<li>Cucumber</li>");
+      });
+
+      $("#b8").click(function () {
+        $("p").remove("#rem");
+      });
+
+      $("#b9").click(function () {
+        $("#rem2").addClass("changecolor");
+        $("#rem2").css("font-weight", "bold");
+      });
+    </script>
+  </body>
+</html>

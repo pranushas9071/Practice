@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="start()">Click to start</button><br /><br />
+    <button onclick="stop()">Click to stop</button>
+    <ul id="display"></ul>
+    <script>
+      var w;
+      const ul = document.getElementById("display");
+      function start() {
+        if (window.Worker) {
+          w = new Worker("./js/worker.js");
+          w.onmessage = function (ev) {
+            const li = document.createElement("li");
+            console.log("Worker has been started ...");
+            li.innerHTML =
+              ev.data.toString().split(",")[0] +
+              "<br>" +
+              ev.data.toString().split(",")[1];
+            ul.appendChild(li);
+          };
+        }
+        else{
+            alert("Your browser does not support this feature..");
+        }
+      }
+      function stop() {
+        console.log("worker has been stopped..");
+        w.terminate();
+        w = undefined;
+      }
+    </script>
+  </body>
+</html>

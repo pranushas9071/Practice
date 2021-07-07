@@ -7,6 +7,7 @@
     <title>Document</title>
   </head>
   <body onoffline="off()" onresize="rsize()">
+    <div contenteditable="true">Heloo ....</div>
     <form>
       <label>Name : </label><br />
       <input
@@ -49,7 +50,7 @@
       <input type="text" onkeyup="keyupFunction()" id="kup" />
       <br />
       <img
-        src="flower.jpg"
+        src="/assets/flower.jpg"
         onmouseover="mover(this)"
         onmouseout="mout(this)"
         height="100px"
@@ -65,8 +66,22 @@
         onpaste="paste()"
       />
       <p id="cbres"></p>
+      <label>Change value events...Give some input below..</label><br />
+      <input type="text" id="cve" placeholder="Enter your data" /><br />
+      <p id="cveRes"></p>
     </form>
     <script>
+      document.execCommand("defaultParagraphSeperator", false, "p");//changes the behaviour..
+      const h = document.getElementById("cve");
+      const i = document.getElementById("cveRes");
+      h.addEventListener("change", (e) => {
+        i.innerHTML = "You entered : " + e.target.value;
+      });
+
+      // function update(e){
+      //   i.innerHTML="You entered : "+e.target.value;
+      // }
+
       function blurFuction() {
         const a = document.getElementById("name");
         a.value = a.value.toUpperCase();
@@ -119,11 +134,11 @@
       function paste() {
         alert("pasted....");
       }
-      function off(){
-          alert("you are offline...");
+      function off() {
+        alert("you are offline...");
       }
-      function rsize(){
-          alert("Resized...");
+      function rsize() {
+        alert("Resized...");
       }
     </script>
   </body>
