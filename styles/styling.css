@@ -1,0 +1,38 @@
+.outercard{
+    width: 60%;
+    height: 600px;
+    margin-top: 30px;
+    margin-left: 300px;
+    align-content: center;
+    background-color: rgb(69, 119, 119);
+    border-radius: 5%;
+}
+.innercardleft{
+    width: 40%;
+    height: 600px;
+    display:block;
+    background-color: rgb(51, 37, 65);
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.innercardright{
+    z-index: 100;
+    width: 150;
+    border: 1px solid red;
+    height: 300;
+    background-color: beige;
+}
+.innercardleftcontent{
+    font-size: 20px;
+    color: white;
+}
+.innercardlefthead{
+    padding-top: 50px;
+    padding-left: 15px;
+    font-size: 30px;
+    color: white;
+    
+}
+.entirebgcolor{
+    background-color: bisque;
+}

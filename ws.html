@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="inputText" type="text" placeholder="Please enter text" />
+    <button id="send" onclick="sendws()">Send message</button>
+    <br />
+    <br />
+    <label for="display">Messages got:</label>
+    <ul id="display"></ul>
+
+    <script>
+      // Create WebSocket connection.
+      const socket = new WebSocket('wss://echo.websocket.org');
+
+      function sendws() {
+        const msg = document.getElementById('inputText').value;
+        socket.send(msg);
+      }
+
+      socket.addEventListener('message', (ev) => {
+        const li = document.createElement('li');
+        li.innerHTML = ev.data;
+        const ul = document.getElementById('display');
+        ul.append(li);
+      });
+    </script>
+  </body>
+</html>
