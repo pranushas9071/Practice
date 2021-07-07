@@ -2,7 +2,7 @@ CACHE MANIFEST
 
 CACHE:
 css/styleToCache.CSS
-app_cache.html
+App-Cache.html
 
 NETWORK:
 *
