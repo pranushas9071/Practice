@@ -9,10 +9,10 @@
   <body>
     <h1>The number is 5</h1>
     <h2 id="display"></h2>
-    <button id="bt">click</button>
     <script>
       function disp(x) {
-        document.getElementById("display").innerHTML = x;
+        console.log(x);
+        document.getElementById("display").innerHTML = "The number is : " + x;
       }
       const num = 5;
       let promise = new Promise((resolve, reject) => {
@@ -29,11 +29,6 @@
         .catch((value) => {
           disp(value);
         });
-      console.log("Starting");
-      let image;
-
-      
-      console.log("Ending..");
     </script>
   </body>
 </html>
