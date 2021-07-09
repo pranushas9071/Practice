@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>DOGS</h1>
+    <table id="disp"></table>
+    <script>
+      let url = "https://dog.ceo/api/breeds/list/all";
+      let request = new XMLHttpRequest();
+      request.open("GET", url);
+      request.responseType = "json";
+      request.send();
+      request.onload = function () {
+        const data = request.response;
+        display(data);
+      };
+      function display(data) {
+        console.log(data.message.australian);
+        const a = Object.keys(data.message);
+        const b = Object.values(data.message);
+        console.log(b);
+        console.log(data.message[5]);
+        console.log(a[5]);
+        const tbl = document.getElementById("disp");
+        // tbl.style.backgroundColor = "#ffe6e6";
+        tbl.style.padding = "3px";
+        tbl.style.width = "100%";
+        tbl.style.border = "1px solid black";
+        const row = document.createElement("tr");
+        tbl.append(row);
+        const head1 = document.createElement("th");
+        head1.innerHTML = "BREED";
+        row.append(head1);
+        const head2 = document.createElement("th");
+        head2.innerHTML = "CONTENTS";
+        row.append(head2);
+        row.style.backgroundColor = "#ffe6e6";
+        head1.style.border = "1px solid black";
+        head2.style.border = "1px solid black";
+        tbl.style.borderCollapse = "collapse";
+        for (let i = 0; i < a.length; i++) {
+          const tr = document.createElement("tr");
+          const td1 = document.createElement("td");
+          const td2 = document.createElement("td");
+          td1.innerHTML = a[i];
+          tr.append(td1);
+          td2.innerHTML = b[i];
+          tr.append(td2);
+          td1.style.border = "1px solid black";
+          td2.style.border = "1px solid black";
+          tbl.append(tr);
+          if (i % 2 != 0) tr.style.backgroundColor = "#d9d9d9";
+          tbl.style.borderCollapse = "collapse";
+        }
+      }
+    </script>
+  </body>
+</html>

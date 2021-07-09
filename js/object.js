@@ -4,14 +4,39 @@ const person = {
   get: function () {
     console.log("Name : " + this.name + " Mobile : " + this.mobile);
   },
-  greettings: function () {
+  greetings: function () {
     console.log("Hello " + this.name);
   },
 };
+
+//bind,call and apply..........................................
+
+function test(val){
+  console.log("Hi......"+this.name+" "+val);
+}
+
+const a=test.bind(person,"Welcome");
+a();
+
+test.call(person,"Welcome");
+
+const student={
+  details:function(){
+    console.log("Name is : "+this.name);
+  }
+}
+const st1={
+  name:"Pavithra",
+  dept:"B.Com",
+}
+
+student.details.apply(st1);
+
+
 console.log(person.name);
 console.log(person.mobile);
 person.get();
-person.greettings();
+person.greetings();
 
 // Creating constructors..................................................................
 
@@ -87,3 +112,5 @@ let bio1 = new Bio("Revanth", "M", "abcd...");
 bio1.greeting();
 
 console.log(bio1.DOB);
+
+
