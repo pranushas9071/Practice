@@ -38,3 +38,11 @@ console.log(s4.indexOf("hello"));
 console.log(s4.startsWith("hello"));
 console.log(s4.startsWith("hello",2));//checks hello is starting from index 2 hence returns false
 console.log(String.fromCharCode(67));//Ascii value is given and it returns the character
+
+let string="abcd";
+let res=string.split("");
+console.log(res);
+
+let arr=['a','b','c'];
+
+console.log((arr.filter((n)=>n=='a')).length);
