@@ -27,3 +27,4 @@ let t1 = new Teacher("Tarunika", "ECE", "Digital-Image-Processing");
 console.log(t1.name);
 t1.subject = "Digital-Signal-Processing";
 console.log(t1.subject);
+

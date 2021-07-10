@@ -15,7 +15,7 @@
       const ul = document.getElementById("display");
       function start() {
         if (window.Worker) {
-          w = new Worker("./js/worker.js");
+          w = new Worker("../js/worker.js");
           w.onmessage = function (ev) {
             const li = document.createElement("li");
             console.log("Worker has been started ...");
