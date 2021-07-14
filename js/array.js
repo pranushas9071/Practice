@@ -57,7 +57,7 @@ for (let i of x) {
   console.log(i);
 }
 console.log("Last index of an element : " + arr.lastIndexOf(11));
-grr = [100, 50, 20];
+let grr = [100, 50, 20];
 console.log("Reduce ......."); // ??????????????????????
 console.log(grr.reduce((acc, cv) => acc + cv));
 console.log("Reverse : " + arr.reverse());
@@ -84,3 +84,22 @@ console.log(arr);
 // console.log(arr);
 // console.log(arr.findIndex((val) => val > 45));
 
+let x1=[1,2,3];
+let y1=x1.map((num)=>{
+  return num*2;
+})
+console.log(x1);
+console.log(y1);
+
+let x2=[1,2,3];
+let y2=x2.reduce((acc,cv)=>{
+  acc+=cv;
+  return acc;
+},1)
+console.log(y2);
+
+let x3=[1,2,3];
+let y3=x3.filter((num)=>{
+  return num>2;
+})
+console.log(y3);

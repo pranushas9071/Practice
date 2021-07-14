@@ -7,6 +7,9 @@
     <title>Document</title>
   </head>
   <body>
+    <button onclick="run()">Click me!!</button>
+    <p id="test"></p>
+    
     <script>
       const sayHello = function () {
         return function () {
@@ -19,6 +22,8 @@
       //sayHello();
 
       function run() {
+        localStorage.setItem("name","pranu");
+        console.log(localStorage.getItem("name"));
         if (localStorage.clickcount >= 1) {
           localStorage.clickcount = Number(localStorage.clickcount) + 1;
         } else {
@@ -35,7 +40,5 @@
       // t = document.cookie;
       console.log(document.cookie);
     </script>
-    <button onclick="run()">Click me!!</button>
-    <p id="test"></p>
   </body>
 </html>

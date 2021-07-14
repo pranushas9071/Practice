@@ -8,7 +8,7 @@ console.log(a.format(new Date("05-07-2021"))); //"5/7/2021"
 
 var d = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
 var e = new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP" });
-var f = new Intl.NumberFormat("de-DE", { style: "currency", currency: "INR" });
+var f = new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR" });
 var g = new Intl.NumberFormat("en-US");
 var h = new Intl.NumberFormat("en-IN");
 console.log(d.format(100200300.4));
