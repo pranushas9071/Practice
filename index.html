@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>INDEX</title>
+    <title>Pranusha</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
@@ -58,13 +58,7 @@
     </nav>
 
     <div class="container-fluid">
-      <iframe
-        id="frame"
-        class="styleFrame"
-        src=""
-        title="front Html"
-      >
-      </iframe>
+      <iframe id="frame" class="styleFrame" src="" title="front Html"> </iframe>
     </div>
 
     <script>
@@ -88,6 +82,7 @@
       }
 
       let html_array = [
+        "public/Aud_Vid.html",
         "public/App-Cache.html",
         "public/Custom-elements.html",
         "public/Events.html",
@@ -99,6 +94,8 @@
         "public/Web-Worker.html",
         "public/e-pass.html",
         "public/e-pass_form.html",
+        "public/Aud_Vid.html",
+        "public/Clipboard_api.html",
       ];
       for (let i = 0; i < html_array.length; i++) {
         const b = $("<a></a>")
@@ -111,7 +108,7 @@
         });
       }
 
-        let css_array = [
+      let css_array = [
         "public/Animations_Transitions.html",
         "public/Media-Query.html",
         "public/Multi-column-display.html",
@@ -129,7 +126,13 @@
       }
 
       let js_array = [
+        "public/JS_basic.html",
         "public/jQuery.html",
+        "public/Promises.html",
+        "public/Asynchronous-functions.html",
+        "public/Regex.html",
+        "public/ES6-module.html",
+        "public/JSON.html",
       ];
       for (let i = 0; i < js_array.length; i++) {
         const b = $("<a></a>")
@@ -141,7 +144,6 @@
           $("#frame").attr("src", js_array[i]);
         });
       }
-
     </script>
   </body>
 </html>

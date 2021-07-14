@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      #loader {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>DOGS</h1>
+    <div id="loader" class="d-flex align-items-center">
+      <strong>Loading...</strong>
+      <div
+        class="spinner-border ml-auto"
+        role="status"
+        aria-hidden="true"
+      ></div>
+    </div>
+    <table id="disp"></table>
+    <script>
+      let url = "https://dog.ceo/api/breeds/list/all";
+      let request = new XMLHttpRequest();
+      console.log(" readyState --- not opened  "+request.readyState);
+      request.open("GET", url);
+      request.responseType = "json";
+      request.send();
+      request.onreadystatechange = (ev) => {
+        console.log("OnreadystateChange display ", ev);
+
+        let t = document.getElementById("loader");
+        if (request.readyState === XMLHttpRequest.LOADING) {
+          //TO DO : put loader
+          t.style.display = "block";
+        } else if (request.readyState === XMLHttpRequest.DONE) {
+          //TO DO : remove loader
+          document.body.removeChild(t);
+        }
+      };
+      request.onload = function () {
+        const data = request.response;
+        display(data);
+      };
+      function display(data) {
+        console.log(data.message.australian);
+        const a = Object.keys(data.message);
+        const b = Object.values(data.message);
+        console.log(b);
+        console.log(data.message[5]);
+        console.log(a[5]);
+        const tbl = document.getElementById("disp");
+        // tbl.style.backgroundColor = "#ffe6e6";
+        tbl.style.padding = "3px";
+        tbl.style.width = "100%";
+        tbl.style.border = "1px solid black";
+        const row = document.createElement("tr");
+        tbl.append(row);
+        const head1 = document.createElement("th");
+        head1.innerHTML = "BREED";
+        row.append(head1);
+        const head2 = document.createElement("th");
+        head2.innerHTML = "CONTENTS";
+        row.append(head2);
+        row.style.backgroundColor = "#ffe6e6";
+        head1.style.border = "1px solid black";
+        head2.style.border = "1px solid black";
+        tbl.style.borderCollapse = "collapse";
+        for (let i = 0; i < a.length; i++) {
+          const tr = document.createElement("tr");
+          const td1 = document.createElement("td");
+          const td2 = document.createElement("td");
+          td1.innerHTML = a[i];
+          tr.append(td1);
+          td2.innerHTML = b[i];
+          tr.append(td2);
+          td1.style.border = "1px solid black";
+          td2.style.border = "1px solid black";
+          tbl.append(tr);
+          if (i % 2 != 0) tr.style.backgroundColor = "#d9d9d9";
+          tbl.style.borderCollapse = "collapse";
+        }
+      }
+    </script>
+  </body>
+</html>

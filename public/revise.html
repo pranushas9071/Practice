@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div > li {
+        background-color: burlywood;
+      }
+      /* ul > li {
+        background-color: coral;
+      } */
+      #test ~ li {
+        background-color: crimson;
+      }
+      .flex-container {
+        display: flex;
+        flex-wrap: nowrap;
+        background-color: DodgerBlue;
+      }
+
+      .flex-container > div {
+        background-color: #f1f1f1;
+        width: 100px;
+        margin: 10px;
+        text-align: center;
+        line-height: 75px;
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body onkeypress="key(event)">
+    <ul id="parent">
+      <li id="fchild">node</li>
+      <li id="schild">
+        <span id="lifchild">node</span><a href="#" id="lischild">node</a>
+        <p id="litchild">node</p>
+      </li>
+      <li id="tchild">node</li>
+    </ul>
+    <p id="disp"></p>
+    <!-- combinators........................................................................... -->
+
+    <div>
+      <ul>
+        <li>
+          <p>para inside li..</p>
+          sample1
+        </li>
+        <li>sample2</li>
+      </ul>
+      <p>first para</p>
+      <p>second para</p>
+      <p>Third para</p>
+    </div>
+    <div>
+      <p>first para</p>
+      <p>second para</p>
+      <p>Third para</p>
+    </div>
+    <ul>
+      <li id="test">one</li>
+      <li>two</li>
+      <li>three</li>
+    </ul>
+    <button type="button" onclick="run()">click</button>
+    <p id="throw"></p>
+    <p id="dbg"></p>
+    <!-- flex -->
+    <div class="flex-container">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+      <div>7</div>
+      <div>8</div>
+      <div>9</div>
+      <div>10</div>
+      <div>11</div>
+      <div>12</div>
+    </div>
+    <script>
+      //DOM traversal...................................................................................
+      const a = document.getElementById("parent");
+      console.log(a.firstElementChild.textContent);
+      console.log(a.children);
+      document.getElementById("disp").innerHTML =
+        document.getElementById("schild").firstElementChild.textContent;
+      console.log(
+        document.getElementById("schild").previousElementSibling.textContent
+      );
+      console.log(document.getElementById("schild").parentElement);
+      const b = document.createElement("li");
+      b.innerHTML = "new li";
+      a.appendChild(b);
+      // debugger;
+      //keyboard events............................................................................
+      function key(ev) {
+        if (ev.ctrlKey == true) {
+          alert("Control key is pressed.....");
+        } else if (ev.shiftKey == true) {
+          alert("Shift key is pressed........");
+        } else {
+          alert(`${ev.key} has been pressed.......${ev.location}`);
+        }
+      }
+      //try ctch throw finally.....................................................................
+
+      function run() {
+        const t = document.getElementById("throw");
+        console.log("clicked");
+        const x = 5;
+        try {
+          if (x > 4) {
+            throw "high value";
+          }
+          // notafunction("hello");
+        } catch (error) {
+          t.innerHTML = error;
+          console.log(error);
+        } finally {
+          console.log("executed");
+        }
+      }
+      //immediately invoked function...............................................................
+      (function () {
+        console.log("iife");
+      })();
+      //assigning a function to a variablr.........................................................
+      console.log(d); //gives undefined because only d is hoisted and not the function....
+      var d = function () {
+        console.log("ddddddd");
+      };
+      function e() {
+        console.log("eeeeeeeeeeee");
+      }
+      let r = 5;
+      let q = document.getElementById("dbg");
+      q.innerHTML = 5 * 2;
+      debugger;
+      q.innerHTML = 5 * 3;
+      debugger;
+      q.innerHTML = 5 * 4;
+      if(window.DeviceOrientationEvent){
+        window.addEventListener("deviceorientation",device);
+      }
+      function device(ev){
+        console.log(ev.gamma);
+      }
+      //custom events.......................................................................
+      const ev=new Event("pranusha");
+      document.addEventListener("pranusha",(ev)=>{
+        console.log("My event is created......");
+      })
+      document.dispatchEvent(ev);
+    </script>
+  </body>
+</html>

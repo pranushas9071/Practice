@@ -2,6 +2,7 @@
   "name": "practice",
   "version": "1.0.0",
   "description": "",
+  "type":"module",
   "main": "index.js",
   "dependencies": {
     "ws": "^7.5.1"

@@ -1,0 +1,35 @@
+<html>
+<head>
+<body>
+<form>
+<table>
+<p>
+<div>
+<span>
+
+window.localStorage.setItem("")
+window.history.back
+<input id="test" type="email" min-length=1 max-length=  pattern="[]" >
+
+#di1{
+    padding:5px;
+    margin-
+}
+
+document.getElementbyId("test").addEventListener("change",(ev)=>{
+if(ev.value.match(""))
+})
+
+let arr=[34,56,1,4];
+arr.push();
+arr.unshift();
+
+let b=arr.map();
+
+const person={
+    name:"user",
+    department:"",
+}
+
+arr.reduce();
+

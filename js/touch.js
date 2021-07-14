@@ -1,5 +1,5 @@
 var can = document.getElementById("container");
-var last = null;
+var last;
 var pen = can.getContext("2d");
 can.addEventListener("touchstart", end);
 can.addEventListener("touchmove", draw);
@@ -10,6 +10,7 @@ function draw(ev) {
     pen.lineWidth = 3;
     pen.strokeStyle = "blue";
     pen.moveTo(last.x, last.y);
+    //console.log(last.x);
     pen.lineTo(ev.touches[0].clientX, ev.touches[0].clientY);
     pen.stroke();
   }
