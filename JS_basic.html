@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="newForm" onsubmit="sample()">
+        <label for="name">Name :</label><br>
+        <input type="text" ><br>
+        <label for="phone">Mobile No :</label><br>
+        <input type="tel" maxlength="10"><br>
+        <label for="date" >Date :</label><br>
+        <input type="date" id="cDate"><br>
+        <label for="RegNo">Reg_No :</label><br>
+        <input type="text"><br><br>
+        <button type="submit" >Click me</button>
+    </form>
+    <p id="sample"></p>
+    <script>
+        // function show(){
+        //     document.getElementById("sample").innerHTML=Date();
+        // }
+        function sample(){
+            const a=document.getElementById("newForm").elements[0].value;
+                console.log('res',a);
+        }
+        // function getDate(){
+        //     var temp=new Date();
+        //     var day=temp.getDate;
+        //     var month=temp.getMonth()+1;
+        //     var year=temp.getFullYear();
+        //     temp= year+'-'+month+'-'+day;
+        //     document.getElementById("newForm").elements[1].setAttribute("min",temp);
+        //     console.log(temp);
+        // }
+        cDate.min=new Date().toISOString().split("T")[0];
+        const t=new Date().toISOString();
+        console.log(t);
+    </script>
+</body>
+</html>
